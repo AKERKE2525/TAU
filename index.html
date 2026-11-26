@@ -1,915 +1,310 @@
 <!DOCTYPE html>
-<html lang="kk">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TURAN UNIVERSITY</title>
+<title>TURAN ATELIER</title>
 
 <style>
-    .tau-emblem {
-    width: 180px;
-    height: 180px;
-    margin: auto;
-    border: 2px solid var(--wine);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: Georgia, serif;
-    font-size: 75px;
-    color: var(--wine);
-    animation: logoFloat 4s ease-in-out infinite;
-}
-
-.tau-emblem span:last-child {
-    color: var(--wine2);
-}
-    .turan-logo {
-    width: 230px;
-    height: auto;
-    display: block;
-    margin: 0 auto 15px;
-    object-fit: contain;
-    border-radius: 4px;
-}
-    /* ===== TURAN ATELIER ANIMATIONS ===== */
-
-body {
-    overflow-x: hidden;
-}
-
-/* Hero animation */
-
-.hero-content > * {
-    animation: fadeUp 1s ease both;
-}
-
-.hero-content .eyebrow {
-    animation-delay: .2s;
-}
-
-.hero-content h1 {
-    animation-delay: .4s;
-}
-
-.hero-content p {
-    animation-delay: .6s;
-}
-
-.hero-content .hero-btn {
-    animation-delay: .8s;
-}
-
-/* Logo animation */
-
-.art-frame {
-    animation: frameAppear 1.4s ease both;
-}
-
-.art-text {
-    animation: logoFloat 4s ease-in-out infinite;
-}
-
-/* Background glow */
-
-.hero-art::before {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.22);
-    filter: blur(55px);
-    animation: glowMove 6s ease-in-out infinite alternate;
-}
-
-/* Product cards */
-
-.product-card {
-    animation: fadeUp .8s ease both;
-    transition: transform .4s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-}
-
-.product-image {
-    transition: all .5s ease;
-}
-
-.product-card:hover .product-image {
-    background-color: #f0d5c6;
-}
-
-/* Buttons */
-
-.add-btn,
-.hero-btn,
-.header-icons button {
-    transition: all .35s ease;
-}
-
-.add-btn:active,
-.hero-btn:active {
-    transform: scale(.96);
-}
-
-/* Sections */
-
-section,
-.brand-section {
-    animation: fadeUp .9s ease both;
-}
-
-/* Scroll reveal */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(45px);
-    transition: opacity .9s ease, transform .9s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Keyframes */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes frameAppear {
-    from {
-        opacity: 0;
-        transform: scale(.8) rotate(-5deg);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
-
-@keyframes logoFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-@keyframes glowMove {
-    from {
-        transform: translate(-40px, -20px);
-    }
-    to {
-        transform: translate(50px, 40px);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
- --wine:#59171b;
- --wine2:#772b31;
- --cream:#f4eee6;
- --peach:#e8c5b2;
- --white:#fffdf9;
- --dark:#291e1d;
+--wine:#59171b;--wine2:#772b31;--cream:#f4eee6;
+--peach:#e8c5b2;--white:#fffdf9;--dark:#291e1d
 }
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--dark);font-family:Arial,sans-serif}
+body{background:var(--cream);color:var(--dark);font-family:Arial,sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer}
-
-.top{
- background:var(--wine);
- color:var(--peach);
- text-align:center;
- padding:10px;
- font-size:10px;
- letter-spacing:4px;
-}
-
-header{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:22px 6%;
- background:var(--cream);
- position:sticky;
- top:0;
- z-index:10;
- border-bottom:1px solid #dfd2c8;
- gap:20px;
-}
-.logo{
- font-family:Georgia,serif;
- font-size:26px;
- color:var(--wine);
- letter-spacing:2px;
- white-space:nowrap;
-}
-nav{display:flex;gap:20px;font-size:10px;letter-spacing:1.5px}
+.top{background:var(--wine);color:var(--peach);text-align:center;padding:10px;font-size:10px;letter-spacing:4px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 6%;background:var(--cream);position:sticky;top:0;z-index:10;border-bottom:1px solid #dfd2c8;gap:20px;flex-wrap:wrap}
+.logo{font-family:Georgia,serif;font-size:24px;color:var(--wine);letter-spacing:2px}
+nav{display:flex;gap:15px;font-size:10px;letter-spacing:1px;flex-wrap:wrap}
 nav a:hover{color:#b36c61}
 .header-icons{display:flex;gap:8px}
-.header-icons button{
- background:transparent;
- border:1px solid var(--wine);
- color:var(--wine);
- padding:9px 12px;
- font-size:11px;
-}
-
-/* MAIN */
-
-.hero{
- background:var(--wine);
- min-height:650px;
- display:grid;
- grid-template-columns:1.1fr .9fr;
- overflow:hidden;
-}
-.hero-content{
- padding:90px 9%;
- display:flex;
- flex-direction:column;
- justify-content:center;
- color:var(--cream);
-}
-.eyebrow{
- color:var(--peach);
- letter-spacing:5px;
- font-size:10px;
-}
-.hero h1{
- font-family:Georgia,serif;
- font-size:clamp(65px,9vw,120px);
- line-height:.88;
- font-weight:normal;
- margin:35px 0;
-}
-.hero h1 em{color:var(--peach);font-weight:normal}
-.hero p{
- font-size:13px;
- line-height:2;
- color:#e6d3ca;
- max-width:330px;
-}
-.hero-btn{
- display:inline-block;
- background:var(--peach);
- color:var(--wine);
- padding:17px 28px;
- width:fit-content;
- margin-top:35px;
- font-size:10px;
- letter-spacing:2px;
- font-weight:bold;
-}
-.hero-btn:hover{background:white}
-
-.hero-art{
- background:var(--peach);
- display:flex;
- align-items:center;
- justify-content:center;
- position:relative;
-}
-.art-frame{
- width:75%;
- height:75%;
- border:1px solid var(--wine);
- display:flex;
- justify-content:center;
- align-items:center;
- position:relative;
-}
-.art-frame:before{
- content:"";
- position:absolute;
- width:75%;
- height:85%;
- border:1px solid rgba(89,23,27,.35);
-}
-.art-text{
- position:relative;
- color:var(--wine);
- font-family:Georgia,serif;
- font-size:clamp(45px,8vw,100px);
- text-align:center;
-}
-.art-text small{
- display:block;
- font-family:Arial;
- font-size:10px;
- letter-spacing:6px;
- margin-top:20px;
-}
-
-/* INFO LINE */
-
-.info-line{
- display:flex;
- justify-content:space-between;
- padding:20px 7%;
- color:var(--wine);
- font-size:10px;
- letter-spacing:2px;
- border-bottom:1px solid #dfd2c8;
-}
-
-/* COLLECTION */
-
-section{padding:85px 7%;scroll-margin-top:85px}
-.heading{
- display:flex;
- justify-content:space-between;
- align-items:end;
- margin-bottom:40px;
-}
-.heading h2{
- font-family:Georgia,serif;
- font-size:clamp(36px,5vw,60px);
- font-weight:normal;
- color:var(--wine);
-}
+.header-icons button{background:transparent;border:1px solid var(--wine);color:var(--wine);padding:9px;font-size:11px}
+.languages{display:flex;gap:5px}
+.languages button{background:transparent;border:1px solid var(--wine);color:var(--wine);padding:8px 10px;font-size:11px}
+.languages button.active{background:var(--wine);color:white}
+.hero{background:var(--wine);min-height:600px;display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}
+.hero-content{padding:90px 9%;display:flex;flex-direction:column;justify-content:center;color:var(--cream);animation:fadeUp 1s}
+.eyebrow{color:var(--peach);letter-spacing:5px;font-size:10px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(60px,9vw,110px);line-height:.95;font-weight:normal;margin:35px 0}
+.hero h1 em{color:var(--peach)}
+.hero p{font-size:13px;line-height:2;color:#e6d3ca;max-width:350px}
+.hero-btn{display:inline-block;background:var(--peach);color:var(--wine);padding:17px 25px;width:fit-content;margin-top:30px;font-size:10px;letter-spacing:2px;font-weight:bold}
+.hero-art{background:var(--peach);display:flex;align-items:center;justify-content:center;position:relative;min-height:400px}
+.art-frame{width:75%;height:75%;border:1px solid var(--wine);display:flex;justify-content:center;align-items:center;position:relative;animation:fadeUp 1.4s}
+.art-text{color:var(--wine);font-family:Georgia,serif;font-size:70px;text-align:center;animation:float 4s infinite}
+.art-text small{display:block;font-family:Arial;font-size:10px;letter-spacing:5px;margin-top:20px}
+.tau-emblem{width:170px;height:170px;margin:auto;border:2px solid var(--wine);border-radius:50%;display:flex;align-items:center;justify-content:center;gap:8px;font-size:65px}
+.tau-emblem span:last-child{color:var(--wine2)}
+.info-line{display:flex;justify-content:space-between;padding:20px 7%;color:var(--wine);font-size:10px;letter-spacing:2px;border-bottom:1px solid #dfd2c8;gap:10px}
+section{padding:80px 7%;scroll-margin-top:100px;animation:fadeUp .8s}
+.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px;gap:15px}
+.heading h2{font-family:Georgia,serif;font-size:clamp(35px,5vw,55px);font-weight:normal;color:var(--wine)}
 .heading p{font-size:10px;letter-spacing:2px;color:#96766c}
-
-.products{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:35px 22px;
-}
-.product-card{position:relative}
-.product-image{
- height:350px;
- background:#e6d7cc;
- display:flex;
- justify-content:center;
- align-items:center;
- color:var(--wine);
- font-size:11px;
- letter-spacing:3px;
-}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 22px}
+.product-card{position:relative;transition:.4s}
+.product-card:hover{transform:translateY(-8px)}
+.product-image{height:330px;background:#e6d7cc;display:flex;justify-content:center;align-items:center;color:var(--wine);font-size:11px;letter-spacing:3px}
 .product-card:nth-child(2n) .product-image{background:#e9cdbf}
 .product-card:nth-child(3n) .product-image{background:#d9c6ba}
-.heart{
- position:absolute;
- top:14px;
- right:14px;
- background:var(--white);
- color:var(--wine);
- border:0;
- border-radius:50%;
- width:40px;
- height:40px;
- font-size:22px;
-}
+.heart{position:absolute;top:14px;right:14px;background:white;color:var(--wine);border:0;border-radius:50%;width:40px;height:40px;font-size:22px}
 .product-info{padding:17px 2px}
-.product-info h3{
- font-family:Georgia,serif;
- font-size:22px;
- font-weight:normal;
- margin-bottom:9px;
-}
+.product-info h3{font-family:Georgia,serif;font-size:22px;font-weight:normal;margin-bottom:9px}
 .price{color:var(--wine);font-weight:bold}
-.product-info select{
- width:100%;
- padding:12px;
- margin:14px 0 8px;
- border:1px solid #d8c3b6;
- background:white;
-}
-.add-btn{
- width:100%;
- background:var(--wine);
- color:white;
- border:1px solid var(--wine);
- padding:15px;
- font-size:10px;
- letter-spacing:2px;
- transition:.3s;
-}
+.product-info select{width:100%;padding:12px;margin:14px 0 8px;border:1px solid #d8c3b6;background:white}
+.add-btn{width:100%;background:var(--wine);color:white;border:1px solid var(--wine);padding:15px;font-size:10px;letter-spacing:2px;transition:.3s}
 .add-btn:hover{background:var(--peach);color:var(--wine)}
-
-/* BRAND MESSAGE */
-
-.brand-section{
- background:var(--peach);
- padding:85px 9%;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:45px;
- align-items:center;
-}
-.brand-section h2{
- font-family:Georgia,serif;
- font-size:clamp(40px,7vw,80px);
- font-weight:normal;
- line-height:1;
- color:var(--wine);
-}
-.brand-section p{
- color:#5c3d37;
- font-size:14px;
- line-height:2.2;
-}
-
-/* CART */
-
+.brand-section{background:var(--peach);padding:85px 9%;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.brand-section h2{font-family:Georgia,serif;font-size:clamp(40px,7vw,75px);font-weight:normal;line-height:1;color:var(--wine)}
+.brand-section p{color:#5c3d37;font-size:14px;line-height:2.2}
 .panel{background:white;padding:30px;border:1px solid #e7d9ce}
-.cart-item{
- display:flex;
- justify-content:space-between;
- gap:15px;
- padding:18px 0;
- border-bottom:1px solid #eee;
- line-height:2;
-}
+.cart-item{display:flex;justify-content:space-between;gap:15px;padding:18px 0;border-bottom:1px solid #eee;line-height:2}
 .cart-item button{border:0;background:none;color:var(--wine);font-size:17px}
 .cart-total{text-align:right;margin:25px 0;font-size:23px;font-weight:bold;color:var(--wine)}
 #wishlistItems{background:white;padding:25px;line-height:2}
-
-/* FORMS */
-
-.form-box{
- max-width:620px;
- background:white;
- padding:38px;
- margin:auto;
- border:1px solid #e7d9ce;
-}
-.form-box h2{
- font-family:Georgia,serif;
- font-size:36px;
- color:var(--wine);
- font-weight:normal;
- margin-bottom:20px;
-}
+.form-box{max-width:620px;background:white;padding:38px;margin:auto;border:1px solid #e7d9ce}
+.form-box h2{font-family:Georgia,serif;font-size:36px;color:var(--wine);font-weight:normal;margin-bottom:20px}
 .form-box p{font-size:13px;color:#96766c;margin-bottom:15px}
-.form-box input,.form-box textarea,.form-box select{
- display:block;
- width:100%;
- padding:15px;
- margin:13px 0;
- background:#fffaf6;
- border:1px solid #e0d0c5;
- font:inherit;
- outline:none;
-}
+.form-box input,.form-box textarea,.form-box select{display:block;width:100%;padding:15px;margin:13px 0;background:#fffaf6;border:1px solid #e0d0c5;font:inherit;outline:none}
 .form-box textarea{min-height:100px}
-.form-box input:focus,.form-box textarea:focus{border-color:var(--wine)}
 .result{margin-top:20px;line-height:2;overflow-wrap:anywhere}
-
-/* REVIEWS */
-
 .review-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.review-card{
- background:white;
- padding:28px;
- border-bottom:3px solid var(--peach);
- line-height:1.8;
-}
+.review-card{background:white;padding:28px;border-bottom:3px solid var(--peach);line-height:1.8}
 .review-card strong{color:var(--wine)}
 .review-card p{margin:12px 0}
-
-/* FOOTER */
-
-footer{
- background:var(--wine);
- color:white;
- text-align:center;
- padding:65px 7% 30px;
-}
-footer h2{
- font-family:Georgia,serif;
- font-size:43px;
- letter-spacing:3px;
-}
-footer p{
- color:var(--peach);
- margin:13px;
- font-size:11px;
- letter-spacing:2px;
-}
+footer{background:var(--wine);color:white;text-align:center;padding:65px 7% 30px}
+footer h2{font-family:Georgia,serif;font-size:43px;letter-spacing:3px}
+footer p{color:var(--peach);margin:13px;font-size:11px;letter-spacing:2px}
 .footer-line{height:1px;background:#ffffff35;margin:35px 0 20px}
-
-/* MOBILE */
-
-@media(max-width:900px){
- header{flex-wrap:wrap}
- nav{order:3;width:100%;overflow-x:auto;padding:10px 0}
-}
-@media(max-width:700px){
- .hero{grid-template-columns:1fr}
- .hero-content{text-align:center;align-items:center;padding:70px 6%}
- .hero-art{min-height:330px}
- .products{grid-template-columns:repeat(2,1fr);gap:16px}
- .product-image{height:230px}
- .brand-section{grid-template-columns:1fr}
- .review-list{grid-template-columns:1fr}
- section{padding:55px 5%}
- .heading{flex-direction:column;align-items:start;gap:10px}
- .form-box{padding:24px}
-}
-@media(max-width:430px){
- .products{grid-template-columns:1fr}
- .product-image{height:300px}
- .logo{font-size:20px}
-}/* ===== TURAN LOADING ===== */
-
-.turan-loader {
-    position: fixed;
-    inset: 0;
-    background: #f5e6d8;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-
-.turan-loader.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.loader-content {
-    text-align: center;
-    animation: loaderAppear 1.2s ease;
-}
-
-.loader-content img {
-    width: 85px;
-    height: 85px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-.loader-content h2 {
-    color: #59171b;
-    letter-spacing: 5px;
-    font-size: 21px;
-}
-
-.loader-content p {
-    color: #59171b;
-    font-size: 10px;
-    letter-spacing: 4px;
-}
-
-.loader-line {
-    width: 130px;
-    height: 2px;
-    background: #d9b6a0;
-    margin: 25px auto;
-    overflow: hidden;
-    position: relative;
-}
-
-.loader-line::after {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background: #59171b;
-    animation: loadingLine 1.2s infinite;
-}
-
-/* ===== FADE IN ===== */
-
-@keyframes loaderAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes loadingLine {
-    from { left: -50%; }
-    to { left: 100%; }
-}
-
-/* ===== HERO ANIMATION ===== */
-
-.hero-content,
-.hero-art {
-    animation: heroAppear 1.2s ease both;
-}
-
-.hero-art {
-    animation-delay: 0.3s;
-}
-
-@keyframes heroAppear {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== PRODUCT HOVER ===== */
-
-.products > * {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.products > *:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(50, 10, 15, 0.10);
-}
-
-.products img,
-.product-image img {
-    transition: transform 0.6s ease;
-}
-
-.products img:hover,
-.product-image img:hover {
-    transform: scale(1.04);
-}
-
-/* ===== BUTTON HOVER ===== */
-
-button,
-.hero-btn,
-nav a {
-    transition: all 0.3s ease;
-}
-
-button:hover,
-.hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 18px rgba(89, 23, 27, 0.18);
-}
-
-nav a:hover {
-    color: #a45a52;
-}
-
-/* ===== SCROLL REVEAL ===== */
-
-.turan-reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.turan-reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== MOBILE ===== */
-
-@media (max-width: 600px) {
-    .loader-content img {
-        width: 65px;
-        height: 65px;
-    }
-
-    .loader-content h2 {
-        font-size: 17px;
-    }
-}
-
-/* Motion accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-    .turan-reveal,
-    .hero-content,
-    .hero-art {
-        animation: none;
-        transition: none;
-        opacity: 1;
-        transform: none;
-    }
-}
+.turan-loader{position:fixed;inset:0;background:#f5e6d8;z-index:99999;display:flex;align-items:center;justify-content:center;transition:.8s}
+.turan-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center}
+.loader-content h2{color:var(--wine);letter-spacing:5px}
+.loader-content p{color:var(--wine);font-size:10px;letter-spacing:4px}
+.loader-line{width:130px;height:2px;background:#d9b6a0;margin:25px auto;overflow:hidden}
+.loader-line:after{content:"";display:block;width:50%;height:100%;background:var(--wine);animation:loading 1.2s infinite}
+@keyframes loading{from{transform:translateX(-100%)}to{transform:translateX(300%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media(max-width:900px){nav{order:3;width:100%;overflow-x:auto;padding:10px 0}}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.hero-content{text-align:center;align-items:center;padding:65px 6%}.hero-art{min-height:330px}.products{grid-template-columns:repeat(2,1fr);gap:16px}.product-image{height:230px}.brand-section{grid-template-columns:1fr}.review-list{grid-template-columns:1fr}section{padding:55px 5%}.heading{flex-direction:column;align-items:start;gap:10px}.form-box{padding:24px}}
+@media(max-width:430px){.products{grid-template-columns:1fr}.product-image{height:300px}.logo{font-size:19px}}
 </style>
 </head>
-
 <body>
-
-<div class="top">TURAN UNIVERSITY — OFFICIAL MERCH</div>
+    <div class="top">TURAN UNIVERSITY — <span data-i="top">ОФИЦИАЛЬНЫЙ МЕРЧ</span></div>
 
 <header>
- <div class="logo">TURAN UNIVERSITY</div>
- <nav>
-  <a href="#home">HOME</a>
-  <a href="#shop">SHOP</a>
-  <a href="#about">ABOUT</a>
-  <a href="#cart">BAG</a>
-  <a href="#wishlist">FAVORITES</a>
-  <a href="#tracking">TRACKING</a>
-  <a href="#reviews">REVIEWS</a>
- </nav>
- <div class="header-icons">
-  <button onclick="showWishlist()">♡ <span id="wishCount">0</span></button>
-  <button onclick="document.getElementById('cart').scrollIntoView()">BAG (<span id="cartCount">0</span>)</button>
- </div>
+<div class="logo">TURAN UNIVERSITY</div>
+<nav>
+<a href="#home" data-i="home">ГЛАВНАЯ</a>
+<a href="#shop" data-i="collection">КОЛЛЕКЦИЯ</a>
+<a href="#about" data-i="about">О НАС</a>
+<a href="#cart" data-i="cart">КОРЗИНА</a>
+<a href="#wishlist" data-i="wishlist">ИЗБРАННОЕ</a>
+<a href="#tracking" data-i="tracking">ОТСЛЕЖИВАНИЕ</a>
+<a href="#reviews" data-i="reviews">ОТЗЫВЫ</a>
+</nav>
+<div class="languages">
+<button onclick="setLanguage('kk')" id="lang-kk">ҚАЗ</button>
+<button onclick="setLanguage('ru')" id="lang-ru">РУС</button>
+<button onclick="setLanguage('en')" id="lang-en">ENG</button>
+</div>
+<div class="header-icons">
+<button onclick="showWishlist()">♡ <span id="wishCount">0</span></button>
+<button onclick="document.getElementById('cart').scrollIntoView()">🛒 <span id="cartCount">0</span></button>
+</div>
 </header>
 
-<!-- HERO -->
-
 <div class="hero" id="home">
- <div class="hero-content">
-  <div class="eyebrow">THE UNIVERSITY COLLECTION / 2026</div>
-  <h1>Made<br>to <em>Belong.</em></h1>
-  <p>
-   A collection inspired by the spirit of TURAN.
-   Modern essentials. Timeless identity.
-  </p>
-  <a href="#shop" class="hero-btn">EXPLORE THE COLLECTION →</a>
- </div>
-
- <div class="hero-art">
-  <div class="art-frame">
-   <div class="art-text">
-    <div class="tau-emblem">
-        <span>Т</span>
-        <span>А</span>
-    </div>
-    <small>TURAN-ASTANA UNIVERSITY</small>
+<div class="hero-content">
+<div class="eyebrow" data-i="eyebrow">КОЛЛЕКЦИЯ УНИВЕРСИТЕТА / 2026</div>
+<h1 data-i="heroTitle">Создано<br>для <em>своих.</em></h1>
+<p data-i="heroText">Коллекция, вдохновлённая духом TURAN. Современный стиль. Неповторимая индивидуальность.</p>
+<a href="#shop" class="hero-btn" data-i="heroButton">СМОТРЕТЬ КОЛЛЕКЦИЮ →</a>
 </div>
-  </div>
- </div>
+<div class="hero-art">
+<div class="art-frame">
+<div class="art-text">
+<div class="tau-emblem"><span>Т</span><span>А</span></div>
+<small>TURAN UNIVERSITY</small>
+</div>
+</div>
+</div>
 </div>
 
 <div class="info-line">
- <span>01 — OUR COLLECTION</span>
- <span>DESIGNED FOR STUDENTS</span>
- <span>02 — OUR IDENTITY</span>
+<span data-i="info1">01 — НАША КОЛЛЕКЦИЯ</span>
+<span data-i="info2">ДЛЯ СТУДЕНТОВ</span>
+<span data-i="info3">02 — НАША ИДЕНТИЧНОСТЬ</span>
 </div>
-
-<!-- SHOP -->
 
 <section id="shop">
- <div class="heading">
-  <h2>Selected Pieces.</h2>
-  <p>THE NEW EDITION / 2026</p>
- </div>
- <div class="products" id="products"></div>
+<div class="heading">
+<h2 data-i="shopTitle">Наша коллекция.</h2>
+<p data-i="shopSubtitle">НОВАЯ КОЛЛЕКЦИЯ / 2026</p>
+</div>
+<div class="products" id="products"></div>
 </section>
-
-<!-- BRAND -->
 
 <div class="brand-section">
- <h2>Wear your<br>university.</h2>
- <p>
-  TURAN ATELIER is a university merchandise concept
-  that combines everyday comfort and contemporary style.
-  <br><br>
-  Created for students who are proud of their identity.
-  More than clothing — a part of your university story.
- </p>
+<h2 data-i="brandTitle">Носи свою<br>университетскую<br>историю.</h2>
+<p data-i="brandText">TURAN ATELIER — концепция университетского мерча, объединяющая повседневный комфорт и современный стиль.<br><br>Создано для студентов, которые гордятся своей принадлежностью. Это больше, чем одежда — часть истории твоего университета.</p>
 </div>
 
-<!-- CART -->
-
 <section id="cart">
- <div class="heading">
-  <h2>Your Bag.</h2>
-  <p>SHOPPING CART</p>
- </div>
- <div class="panel">
-  <div id="cartItems">Your cart is empty.</div>
-  <div class="cart-total">Total: <span id="total">0 ₸</span></div>
-  <button class="add-btn" onclick="openCheckout()">CHECKOUT →</button>
- </div>
+<div class="heading">
+<h2 data-i="cartTitle">Ваша корзина.</h2>
+<p data-i="cartSubtitle">ВАШИ ПОКУПКИ</p>
+</div>
+<div class="panel">
+<div id="cartItems">Ваша корзина пуста.</div>
+<div class="cart-total">
+<span data-i="total">Итого:</span>
+<span id="total">0 ₸</span>
+</div>
+<button class="add-btn" onclick="openCheckout()" data-i="checkoutButton">ОФОРМИТЬ ЗАКАЗ →</button>
+</div>
 </section>
-
-<!-- WISHLIST -->
 
 <section id="wishlist">
- <div class="heading">
-  <h2>Favorites.</h2>
-  <p>YOUR SAVED PIECES</p>
- </div>
- <div id="wishlistItems">No favorite products yet.</div>
+<div class="heading">
+<h2 data-i="wishTitle">Избранное.</h2>
+<p data-i="wishSubtitle">СОХРАНЁННЫЕ ТОВАРЫ</p>
+</div>
+<div id="wishlistItems">Пока нет избранных товаров.</div>
 </section>
-
-<!-- CHECKOUT -->
 
 <section id="checkout">
- <div class="form-box">
-  <h2>Place Your Order</h2>
-  <form id="orderForm">
-   <input id="customerName" placeholder="Фамилия и имя" required>
-   <input id="customerPhone" type="tel" placeholder="Номер телефона" required>
-   <input id="customerCity" placeholder="Город" required>
-   <textarea id="customerAddress" placeholder="Адрес доставки" required></textarea>
-   <button class="add-btn" type="submit">ПОТВЕРДИТЬ ЗАКАЗ →</button>
-  </form>
-  <div class="result" id="orderResult"></div>
- </div>
+<div class="form-box">
+<h2 data-i="checkoutTitle">Оформление заказа</h2>
+<form id="orderForm">
+<input id="customerName" data-placeholder="name" placeholder="Фамилия и имя" required>
+<input id="customerPhone" type="tel" data-placeholder="phone" placeholder="Номер телефона" required>
+<input id="customerCity" data-placeholder="city" placeholder="Город" required>
+<textarea id="customerAddress" data-placeholder="address" placeholder="Адрес доставки" required></textarea>
+<button class="add-btn" type="submit" data-i="confirm">ПОДТВЕРДИТЬ ЗАКАЗ →</button>
+</form>
+<div class="result" id="orderResult"></div>
+</div>
 </section>
-
-<!-- TRACKING -->
 
 <section id="tracking">
- <div class="form-box">
-  <h2>Отследить заказ</h2>
-  <p>Введите номер вашего заказа ниже</p>
-  <input id="trackingNumber" placeholder="НАПРИМЕР: TURAN-123456">
-  <button class="add-btn" onclick="trackOrder()">ОТСЛЕДИТЬ ЗАКАЗ</button>
-  <div class="result" id="trackingResult"></div>
- </div>
+<div class="form-box">
+<h2 data-i="trackingTitle">Отследить заказ</h2>
+<p data-i="trackingText">Введите номер вашего заказа ниже</p>
+<input id="trackingNumber" data-placeholder="trackingPlaceholder" placeholder="НАПРИМЕР: TURAN-123456">
+<button class="add-btn" onclick="trackOrder()" data-i="trackButton">ОТСЛЕДИТЬ ЗАКАЗ</button>
+<div class="result" id="trackingResult"></div>
+</div>
 </section>
-
-<!-- REVIEWS -->
 
 <section id="reviews">
- <div class="heading">
-  <h2>Client Notes.</h2>
-  <p>YOUR EXPERIENCE</p>
- </div>
-
- <div class="review-list" id="reviewList">
-  <div class="review-card">
-   <strong>★★★★★</strong>
-   <p>Great university merchandise!</p>
-   <strong>Customer</strong>
-  </div>
- </div>
-
- <div class="form-box" style="margin-top:30px">
-  <h2>Оставьте отзыв</h2>
-  <form id="reviewForm">
-   <input id="reviewName" placeholder="Ваше имя" required>
-   <select id="reviewRating">
-    <option value="5">★★★★★</option>
-    <option value="4">★★★★</option>
-    <option value="3">★★★</option>
-    <option value="2">★★</option>
-    <option value="1">★</option>
-   </select>
-   <textarea id="reviewText" placeholder="ВАШ ОТЗЫВ..." required></textarea>
-   <button class="add-btn" type="submit">ОТПРАВИТЬ ОТЗЫВ</button>
-  </form>
- </div>
+<div class="heading">
+<h2 data-i="reviewTitle">Отзывы клиентов.</h2>
+<p data-i="reviewSubtitle">ВАШИ ВПЕЧАТЛЕНИЯ</p>
+</div>
+<div class="review-list" id="reviewList"></div>
+<div class="form-box" style="margin-top:30px">
+<h2 data-i="leaveReview">Оставьте отзыв</h2>
+<form id="reviewForm">
+<input id="reviewName" data-placeholder="reviewName" placeholder="Ваше имя" required>
+<select id="reviewRating">
+<option value="5">★★★★★</option>
+<option value="4">★★★★</option>
+<option value="3">★★★</option>
+<option value="2">★★</option>
+<option value="1">★</option>
+</select>
+<textarea id="reviewText" data-placeholder="reviewText" placeholder="ВАШ ОТЗЫВ..." required></textarea>
+<button class="add-btn" type="submit" data-i="sendReview">ОТПРАВИТЬ ОТЗЫВ</button>
+</form>
+</div>
 </section>
-
-<!-- ABOUT -->
 
 <section id="about">
- <div class="heading">
-  <h2>Our Identity.</h2>
-  <p>THE STORY OF TURAN ATELIER</p>
- </div>
- <p style="max-width:700px;line-height:2;font-size:15px">
-  TURAN ATELIER represents a modern approach to university
-  merchandise. Our concept is built around identity,
-  creativity and student life. We believe every piece
-  can become a symbol of memories and belonging.
- </p>
+<div class="heading">
+<h2 data-i="philosophy">Наша философия.</h2>
+<p data-i="history">ИСТОРИЯ TURAN ATELIER</p>
+</div>
+<p style="max-width:700px;line-height:2;font-size:15px" data-i="aboutText">TURAN ATELIER представляет современный подход к университетской одежде. Наша концепция основана на индивидуальности, творчестве и студенческой жизни. Мы верим, что каждая вещь может стать символом воспоминаний и принадлежности к университету.</p>
 </section>
-
-<footer>
- <h2>TURAN UNIVERSITY.</h2>
- <p>MADE TO BELONG.</p>
- <p>OFFICIAL UNIVERSITY MERCHANDISE</p>
- <div class="footer-line"></div>
- <p>©️ 2026 TURAN ATELIER. ALL RIGHTS RESERVED.</p>
-</footer>
-
 <script>
+const translations={
+ru:{
+top:"ОФИЦИАЛЬНЫЙ МЕРЧ",home:"ГЛАВНАЯ",collection:"КОЛЛЕКЦИЯ",about:"О НАС",cart:"КОРЗИНА",wishlist:"ИЗБРАННОЕ",tracking:"ОТСЛЕЖИВАНИЕ",reviews:"ОТЗЫВЫ",
+eyebrow:"КОЛЛЕКЦИЯ УНИВЕРСИТЕТА / 2026",heroTitle:"Создано<br>для <em>своих.</em>",heroText:"Коллекция, вдохновлённая духом TURAN. Современный стиль. Неповторимая индивидуальность.",heroButton:"СМОТРЕТЬ КОЛЛЕКЦИЮ →",
+info1:"01 — НАША КОЛЛЕКЦИЯ",info2:"ДЛЯ СТУДЕНТОВ",info3:"02 — НАША ИДЕНТИЧНОСТЬ",shopTitle:"Наша коллекция.",shopSubtitle:"НОВАЯ КОЛЛЕКЦИЯ / 2026",
+brandTitle:"Носи свою<br>университетскую<br>историю.",brandText:"TURAN ATELIER — концепция университетского мерча, объединяющая повседневный комфорт и современный стиль.<br><br>Создано для студентов, которые гордятся своей принадлежностью. Это больше, чем одежда — часть истории твоего университета.",
+cartTitle:"Ваша корзина.",cartSubtitle:"ВАШИ ПОКУПКИ",total:"Итого:",checkoutButton:"ОФОРМИТЬ ЗАКАЗ →",emptyCart:"Ваша корзина пуста.",wishTitle:"Избранное.",wishSubtitle:"СОХРАНЁННЫЕ ТОВАРЫ",emptyWish:"Пока нет избранных товаров.",
+checkoutTitle:"Оформление заказа",name:"Фамилия и имя",phone:"Номер телефона",city:"Город",address:"Адрес доставки",confirm:"ПОДТВЕРДИТЬ ЗАКАЗ →",
+trackingTitle:"Отследить заказ",trackingText:"Введите номер вашего заказа ниже",trackingPlaceholder:"НАПРИМЕР: TURAN-123456",trackButton:"ОТСЛЕДИТЬ ЗАКАЗ",
+reviewTitle:"Отзывы клиентов.",reviewSubtitle:"ВАШИ ВПЕЧАТЛЕНИЯ",leaveReview:"Оставьте отзыв",reviewName:"Ваше имя",reviewText:"ВАШ ОТЗЫВ...",sendReview:"ОТПРАВИТЬ ОТЗЫВ",
+philosophy:"Наша философия.",history:"ИСТОРИЯ TURAN ATELIER",aboutText:"TURAN ATELIER представляет современный подход к университетской одежде. Наша концепция основана на индивидуальности, творчестве и студенческой жизни. Мы верим, что каждая вещь может стать символом воспоминаний и принадлежности к университету.",
+footer1:"СОЗДАНО ДЛЯ СВОИХ.",footer2:"ОФИЦИАЛЬНАЯ УНИВЕРСИТЕТСКАЯ ОДЕЖДА",rights:"ВСЕ ПРАВА ЗАЩИЩЕНЫ.",chooseSize:"Выберите размер",add:"ДОБАВИТЬ В КОРЗИНУ +",photo:"ФОТО ТОВАРА",size:"Размер:",remove:"Удалить ×",delete:"Удалить ×",added:"Товар добавлен в корзину!",chooseAlert:"Пожалуйста, выберите размер!",emptyAlert:"Ваша корзина пуста!",created:"Заказ создан!",order:"Заказ:",buyer:"Покупатель:",amount:"Сумма:",status:"Статус:",notFound:"Заказ не найден. Проверьте номер заказа.",pending:"Заказ принят",sendWhatsApp:"ОТПРАВИТЬ ЗАКАЗ В WHATSAPP →",defaultReview:"Отличный университетский мерч!",buyerName:"Покупатель"
+},
+kk:{
+top:"УНИВЕРСИТЕТТІҢ РЕСМИ МЕРЧІ",home:"БАСТЫ БЕТ",collection:"ЖИНАҚ",about:"БІЗ ТУРАЛЫ",cart:"СЕБЕТ",wishlist:"ТАҢДАУЛЫ",tracking:"ТАПСЫРЫСТЫ БАҚЫЛАУ",reviews:"ПІКІРЛЕР",
+eyebrow:"УНИВЕРСИТЕТ ЖИНАҒЫ / 2026",heroTitle:"Өзімізге<br>арналған <em>стиль.</em>",heroText:"TURAN рухынан шабыт алған киімдер жинағы. Заманауи стиль. Ерекше болмыс.",heroButton:"ЖИНАҚТЫ КӨРУ →",
+info1:"01 — БІЗДІҢ ЖИНАҚ",info2:"СТУДЕНТТЕРГЕ АРНАЛҒАН",info3:"02 — БІЗДІҢ БОЛМЫС",shopTitle:"Біздің жинақ.",shopSubtitle:"ЖАҢА ЖИНАҚ / 2026",
+brandTitle:"Өз университетіңнің<br>тарихын бірге<br>алып жүр.",brandText:"TURAN ATELIER — күнделікті жайлылық пен заманауи стильді біріктіретін университеттік киім тұжырымдамасы.<br><br>Университетін мақтан тұтатын студенттерге арналған. Бұл жай ғана киім емес — университет тарихының бір бөлігі.",
+cartTitle:"Сіздің себетіңіз.",cartSubtitle:"СІЗДІҢ САТЫП АЛУЛАРЫҢЫЗ",total:"Жалпы:",checkoutButton:"ТАПСЫРЫС БЕРУ →",emptyCart:"Себетіңіз бос.",wishTitle:"Таңдаулылар.",wishSubtitle:"САҚТАЛҒАН ТАУАРЛАР",emptyWish:"Әзірге таңдаулы тауарлар жоқ.",
+checkoutTitle:"Тапсырысты рәсімдеу",name:"Аты-жөніңіз",phone:"Телефон нөмірі",city:"Қала",address:"Жеткізу мекенжайы",confirm:"ТАПСЫРЫСТЫ РАСТАУ →",
+trackingTitle:"Тапсырысты бақылау",trackingText:"Тапсырыс нөмірін төменге енгізіңіз",trackingPlaceholder:"МЫСАЛЫ: TURAN-123456",trackButton:"ТАПСЫРЫСТЫ БАҚЫЛАУ",
+reviewTitle:"Клиенттердің пікірлері.",reviewSubtitle:"СІЗДІҢ ӘСЕРЛЕРІҢІЗ",leaveReview:"Пікір қалдырыңыз",reviewName:"Атыңыз",reviewText:"ПІКІРІҢІЗ...",sendReview:"ПІКІР ЖІБЕРУ",
+philosophy:"Біздің философиямыз.",history:"TURAN ATELIER ТАРИХЫ",aboutText:"TURAN ATELIER университеттік киімге заманауи көзқарасты ұсынады. Біздің тұжырымдамамыз ерекшелікке, шығармашылыққа және студенттік өмірге негізделген. Әрбір киім университетпен байланысты естеліктердің символына айнала алады.",
+footer1:"ӨЗІМІЗДІҢ АДАМДАРҒА АРНАЛҒАН.",footer2:"УНИВЕРСИТЕТТІҢ РЕСМИ КИІМДЕРІ",rights:"БАРЛЫҚ ҚҰҚЫҚ ҚОРҒАЛҒАН.",chooseSize:"Өлшемді таңдаңыз",add:"СЕБЕТКЕ ҚОСУ +",photo:"ТАУАР ФОТОСЫ",size:"Өлшемі:",remove:"Өшіру ×",delete:"Өшіру ×",added:"Тауар себетке қосылды!",chooseAlert:"Алдымен өлшемді таңдаңыз!",emptyAlert:"Себетіңіз бос!",created:"Тапсырыс жасалды!",order:"Тапсырыс:",buyer:"Сатып алушы:",amount:"Сомасы:",status:"Мәртебесі:",notFound:"Тапсырыс табылмады. Нөмірді тексеріңіз.",pending:"Тапсырыс қабылданды",sendWhatsApp:"ТАПСЫРЫСТЫ WHATSAPP-ҚА ЖІБЕРУ →",defaultReview:"Университет мерчі өте керемет!",buyerName:"Сатып алушы"
+},
+en:{
+top:"OFFICIAL UNIVERSITY MERCH",home:"HOME",collection:"COLLECTION",about:"ABOUT",cart:"CART",wishlist:"WISHLIST",tracking:"TRACK ORDER",reviews:"REVIEWS",
+eyebrow:"UNIVERSITY COLLECTION / 2026",heroTitle:"Made<br>for <em>our own.</em>",heroText:"A collection inspired by the spirit of TURAN. Modern style. Unique identity.",heroButton:"EXPLORE COLLECTION →",
+info1:"01 — OUR COLLECTION",info2:"MADE FOR STUDENTS",info3:"02 — OUR IDENTITY",shopTitle:"Our collection.",shopSubtitle:"NEW COLLECTION / 2026",
+brandTitle:"Wear your<br>university<br>story.",brandText:"TURAN ATELIER is a university merchandise concept combining everyday comfort with modern style.<br><br>Created for students who are proud of their university. More than clothing — it is part of your university story.",
+cartTitle:"Your cart.",cartSubtitle:"YOUR PURCHASES",total:"Total:",checkoutButton:"PLACE ORDER →",emptyCart:"Your cart is empty.",wishTitle:"Wishlist.",wishSubtitle:"SAVED PRODUCTS",emptyWish:"No favourite products yet.",
+checkoutTitle:"Checkout",name:"Full name",phone:"Phone number",city:"City",address:"Delivery address",confirm:"CONFIRM ORDER →",
+trackingTitle:"Track your order",trackingText:"Enter your order number below",trackingPlaceholder:"FOR EXAMPLE: TURAN-123456",trackButton:"TRACK ORDER",
+reviewTitle:"Customer reviews.",reviewSubtitle:"YOUR IMPRESSIONS",leaveReview:"Leave a review",reviewName:"Your name",reviewText:"YOUR REVIEW...",sendReview:"SEND REVIEW",
+philosophy:"Our philosophy.",history:"THE STORY OF TURAN ATELIER",aboutText:"TURAN ATELIER presents a modern approach to university clothing. Our concept is based on individuality, creativity and student life. We believe every item can become a symbol of memories and belonging to the university.",
+footer1:"MADE FOR OUR OWN.",footer2:"OFFICIAL UNIVERSITY CLOTHING",rights:"ALL RIGHTS RESERVED.",chooseSize:"Choose a size",add:"ADD TO CART +",photo:"PRODUCT PHOTO",size:"Size:",remove:"Remove ×",delete:"Remove ×",added:"Product added to cart!",chooseAlert:"Please choose a size!",emptyAlert:"Your cart is empty!",created:"Order created!",order:"Order:",buyer:"Customer:",amount:"Amount:",status:"Status:",notFound:"Order not found. Please check the order number.",pending:"Order received",sendWhatsApp:"SEND ORDER VIA WHATSAPP →",defaultReview:"Great university merchandise!",buyerName:"Customer"
+}
+};let lang=localStorage.getItem("turanLanguage")||"ru";
 
-// PRODUCTS
+function t(key){
+    return translations[lang][key]||translations.ru[key]||key;
+}
+
+function setLanguage(language){
+    lang=language;
+    localStorage.setItem("turanLanguage",lang);
+    document.documentElement.lang=lang;
+
+    document.querySelectorAll("[data-i]").forEach(el=>{
+        const key=el.dataset.i;
+        if(translations[lang][key])el.innerHTML=translations[lang][key];
+    });
+
+    document.querySelectorAll("[data-placeholder]").forEach(el=>{
+        el.placeholder=t(el.dataset.placeholder);
+    });
+
+    document.querySelectorAll(".languages button").forEach(b=>b.classList.remove("active"));
+    document.getElementById("lang-"+lang).classList.add("active");
+
+    renderProducts();
+    renderCart();
+    renderWishlist();
+    renderReviews();
+}
 
 const products=[
- {id:1,name:"Turan Hoodie",price:15000},
- {id:2,name:"Classic T-shirt",price:8000},
- {id:3,name:"Turan Sweatshirt",price:13000},
- {id:4,name:"University Hoodie",price:16000},
- {id:5,name:"Basic T-shirt",price:7500},
- {id:6,name:"Turan Collection",price:12000}
+    {id:1,name:"Turan Hoodie",price:15000},
+    {id:2,name:"Classic T-shirt",price:8000},
+    {id:3,name:"Turan Sweatshirt",price:13000},
+    {id:4,name:"University Hoodie",price:16000},
+    {id:5,name:"Basic T-shirt",price:7500},
+    {id:6,name:"Turan Collection",price:12000}
 ];
 
 let cart=JSON.parse(localStorage.getItem("turanCart"))||[];
@@ -918,229 +313,316 @@ let orders=JSON.parse(localStorage.getItem("turanOrders"))||[];
 let reviews=JSON.parse(localStorage.getItem("turanReviews"))||[];
 
 function save(){
- localStorage.setItem("turanCart",JSON.stringify(cart));
- localStorage.setItem("turanWishlist",JSON.stringify(wishlist));
- localStorage.setItem("turanOrders",JSON.stringify(orders));
- localStorage.setItem("turanReviews",JSON.stringify(reviews));
+    localStorage.setItem("turanCart",JSON.stringify(cart));
+    localStorage.setItem("turanWishlist",JSON.stringify(wishlist));
+    localStorage.setItem("turanOrders",JSON.stringify(orders));
+    localStorage.setItem("turanReviews",JSON.stringify(reviews));
 }
-
-// PRODUCTS
 
 function renderProducts(){
- document.getElementById("products").innerHTML=products.map(p=>`
-  <div class="product-card">
-   <div class="product-image">YOUR PHOTO HERE</div>
-   <button class="heart" onclick="toggleWish(${p.id})">
-    ${wishlist.includes(p.id)?"♥️":"♡"}
-   </button>
-   <div class="product-info">
-    <h3>${p.name}</h3>
-    <p class="price">${p.price.toLocaleString("ru-RU")} ₸</p>
-    <select id="size${p.id}">
-     <option value="">Choose size</option>
-     <option>S</option><option>M</option>
-     <option>L</option><option>XL</option>
-    </select>
-    <button class="add-btn" onclick="addToCart(${p.id})">ADD TO BAG +</button>
-   </div>
-  </div>
- `).join("");
+    document.getElementById("products").innerHTML=products.map(p=>`
+        <div class="product-card">
+            <div class="product-image">${t("photo")}</div>
+            <button class="heart" onclick="toggleWish(${p.id})">${wishlist.includes(p.id)?"♥️":"♡"}</button>
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <p class="price">${p.price.toLocaleString("ru-RU")} ₸</p>
+                <select id="size${p.id}">
+                    <option value="">${t("chooseSize")}</option>
+                    <option>S</option><option>M</option><option>L</option><option>XL</option>
+                </select>
+                <button class="add-btn" onclick="addToCart(${p.id})">${t("add")}</button>
+            </div>
+        </div>
+    `).join("");
 }
 
-// CART
-
 function addToCart(id){
- const size=document.getElementById("size"+id).value;
- if(!size){alert("Please choose a size!");return;}
- const item=cart.find(x=>x.id===id&&x.size===size);
- if(item)item.qty++;
- else cart.push({id,size,qty:1});
- save();renderCart();
- alert("Product added to cart!");
+    const size=document.getElementById("size"+id).value;
+    if(!size){alert(t("chooseAlert"));return}
+
+    const item=cart.find(x=>x.id===id&&x.size===size);
+    if(item)item.qty++;
+    else cart.push({id,size,qty:1});
+
+    save();
+    renderCart();
+    alert(t("added"));
 }
 
 function changeQty(index,amount){
- cart[index].qty+=amount;
- if(cart[index].qty<=0)cart.splice(index,1);
- save();renderCart();
+    cart[index].qty+=amount;
+    if(cart[index].qty<=0)cart.splice(index,1);
+    save();
+    renderCart();
 }
 
 function removeItem(index){
- cart.splice(index,1);
- save();renderCart();
+    cart.splice(index,1);
+    save();
+    renderCart();
 }
 
 function renderCart(){
- let total=0,count=0;
- document.getElementById("cartItems").innerHTML=cart.length?
- cart.map((item,i)=>{
-  const p=products.find(x=>x.id===item.id);
-  total+=p.price*item.qty;
-  count+=item.qty;
-  return `
-   <div class="cart-item">
-    <div>
-     <strong>${p.name}</strong><br>
-     Size: ${item.size}<br>
-     ${p.price.toLocaleString("ru-RU")} ₸<br>
-     <button onclick="changeQty(${i},-1)">−</button>
-     ${item.qty}
-     <button onclick="changeQty(${i},1)">+</button>
-    </div>
-    <button onclick="removeItem(${i})">Remove ×</button>
-   </div>`;
- }).join(""):"Your cart is empty.";
- document.getElementById("total").textContent=total.toLocaleString("ru-RU")+" ₸";
- document.getElementById("cartCount").textContent=count;
+    let total=0,count=0;
+
+    document.getElementById("cartItems").innerHTML=cart.length?cart.map((item,i)=>{
+        const p=products.find(x=>x.id===item.id);
+        total+=p.price*item.qty;
+        count+=item.qty;
+
+        return `
+            <div class="cart-item">
+                <div>
+                    <strong>${p.name}</strong><br>
+                    ${t("size")} ${item.size}<br>
+                    ${p.price.toLocaleString("ru-RU")} ₸<br>
+                    <button onclick="changeQty(${i},-1)">−</button>
+                    ${item.qty}
+                    <button onclick="changeQty(${i},1)">+</button>
+                </div>
+                <button onclick="removeItem(${i})">${t("remove")}</button>
+            </div>
+        `;
+    }).join(""):t("emptyCart");
+
+    document.getElementById("total").textContent=total.toLocaleString("ru-RU")+" ₸";
+    document.getElementById("cartCount").textContent=count;
 }
 
-// WISHLIST
-
 function toggleWish(id){
- if(wishlist.includes(id))wishlist=wishlist.filter(x=>x!==id);
- else wishlist.push(id);
- save();renderProducts();renderWishlist();
+    if(wishlist.includes(id))wishlist=wishlist.filter(x=>x!==id);
+    else wishlist.push(id);
+
+    save();
+    renderProducts();
+    renderWishlist();
 }
 
 function showWishlist(){
- document.getElementById("wishlist").scrollIntoView();
+    document.getElementById("wishlist").scrollIntoView();
 }
 
 function renderWishlist(){
- const el=document.getElementById("wishlistItems");
- el.innerHTML=wishlist.length?wishlist.map(id=>{
-  const p=products.find(x=>x.id===id);
-  return `<p style="padding:10px">
-   ${p.name} — ${p.price.toLocaleString("ru-RU")} ₸
-   <button onclick="toggleWish(${id})"
-    style="border:0;background:none;color:#59171b">Remove ×</button>
-  </p>`;
- }).join(""):"No favorite products yet.";
- document.getElementById("wishCount").textContent=wishlist.length;
+    document.getElementById("wishlistItems").innerHTML=wishlist.length?wishlist.map(id=>{
+        const p=products.find(x=>x.id===id);
+        return `<p style="padding:10px">${p.name} — ${p.price.toLocaleString("ru-RU")} ₸
+        <button onclick="toggleWish(${id})" style="border:0;background:none;color:#59171b">${t("delete")}</button></p>`;
+    }).join(""):t("emptyWish");
+
+    document.getElementById("wishCount").textContent=wishlist.length;
 }
 
-// CHECKOUT
-
 function openCheckout(){
- if(!cart.length){alert("Your cart is empty!");return;}
- document.getElementById("checkout").scrollIntoView();
+    if(!cart.length){alert(t("emptyAlert"));return}
+    document.getElementById("checkout").scrollIntoView();
 }
 
 document.getElementById("orderForm").addEventListener("submit",function(e){
- e.preventDefault();
- if(!cart.length){alert("Your cart is empty!");return;}
+    e.preventDefault();
 
- const name=document.getElementById("customerName").value.trim();
- const phone=document.getElementById("customerPhone").value.trim();
- const city=document.getElementById("customerCity").value.trim();
- const address=document.getElementById("customerAddress").value.trim();
- const orderNumber="TURAN-"+Date.now().toString().slice(-8);
+    if(!cart.length){alert(t("emptyAlert"));return}
 
- const total=cart.reduce((sum,item)=>{
-  return sum+products.find(p=>p.id===item.id).price*item.qty;
- },0);
+    const name=document.getElementById("customerName").value.trim();
+    const phone=document.getElementById("customerPhone").value.trim();
+    const city=document.getElementById("customerCity").value.trim();
+    const address=document.getElementById("customerAddress").value.trim();
 
- const order={
-  number:orderNumber,name,phone,city,address,
-  items:[...cart],total,status:"Order received"
- };
+    const orderNumber="TURAN-"+Date.now().toString().slice(-8);
+    const total=cart.reduce((sum,item)=>sum+products.find(p=>p.id===item.id).price*item.qty,0);
 
- orders.push(order);
- save();
+    const order={
+        number:orderNumber,
+        name,phone,city,address,
+        items:[...cart],
+        total,
+        status:t("pending")
+    };
 
- let message=`Hello! I want to order from TURAN ATELIER.%0A`;
- message+=`Order: ${orderNumber}%0A`;
- message+=`Name: ${name}%0APhone: ${phone}%0A`;
- message+=`City: ${city}%0AAddress: ${address}%0AProducts:%0A`;
+    orders.push(order);
+    save();
 
- order.items.forEach(item=>{
-  const p=products.find(x=>x.id===item.id);
-  message+=`${p.name}, size ${item.size}, quantity ${item.qty}%0A`;
- });
+    let message=`TURAN ATELIER%0A${t("order")} ${orderNumber}%0A${name}%0A${phone}%0A${city}%0A${address}%0A`;
 
- message+=`Total: ${total} KZT`;
+    order.items.forEach(item=>{
+        const p=products.find(x=>x.id===item.id);
+        message+=`${p.name}, ${item.size}, x${item.qty}%0A`;
+    });
 
- document.getElementById("orderResult").innerHTML=`
-  <strong>Order created!</strong><br>
-  Your order number: <strong>${orderNumber}</strong><br>
-  Total: ${total.toLocaleString("ru-RU")} ₸<br>
-  <a href="https://wa.me/77082070573?text=${message}"
-   target="_blank"
-   style="display:inline-block;background:#59171b;color:white;padding:14px;margin-top:15px">
-   SEND ORDER TO WHATSAPP →
-  </a>`;
+    message+=`${t("amount")} ${total} KZT`;
 
- cart=[];
- save();renderCart();
- document.getElementById("orderForm").reset();
+    document.getElementById("orderResult").innerHTML=`
+        <strong>${t("created")}</strong><br>
+        ${t("order")} <strong>${orderNumber}</strong><br>
+        ${t("amount")} ${total.toLocaleString("ru-RU")} ₸<br>
+        <a href="https://wa.me/77082070573?text=${message}" target="_blank"
+        style="display:inline-block;background:#59171b;color:white;padding:14px;margin-top:15px">
+        ${t("sendWhatsApp")}</a>
+    `;
+
+    cart=[];
+    save();
+    renderCart();
+    this.reset();
 });
 
-// TRACKING
-
 function trackOrder(){
- const number=document.getElementById("trackingNumber").value.trim();
- const order=orders.find(x=>x.number===number);
+    const number=document.getElementById("trackingNumber").value.trim();
+    const order=orders.find(x=>x.number===number);
 
- document.getElementById("trackingResult").innerHTML=order?
- `Order: <strong>${order.number}</strong><br>
- Customer: ${order.name}<br>
- Total: ${order.total.toLocaleString("ru-RU")} ₸<br>
- Status: <strong>${order.status}</strong>`:
- "Order not found. Please check your order number.";
+    document.getElementById("trackingResult").innerHTML=order?
+    `${t("order")} <strong>${order.number}</strong><br>
+    ${t("buyer")} ${order.name}<br>
+    ${t("amount")} ${order.total.toLocaleString("ru-RU")} ₸<br>
+    ${t("status")} <strong>${order.status}</strong>`:t("notFound");
 }
 
-// REVIEWS
-
 function renderReviews(){
- document.getElementById("reviewList").innerHTML=
- reviews.map(r=>`
-  <div class="review-card">
-   <strong>${"★".repeat(r.rating)}</strong>
-   <p>${r.text.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</p>
-   <strong>${r.name.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</strong>
-  </div>
- `).join("")||"No reviews yet.";
+    document.getElementById("reviewList").innerHTML=reviews.map(r=>`
+        <div class="review-card">
+            <strong>${"★".repeat(r.rating)}</strong>
+            <p>${escapeHTML(r.text)}</p>
+            <strong>${escapeHTML(r.name)}</strong>
+        </div>
+    `).join("")||`
+        <div class="review-card">
+            <strong>★★★★★</strong>
+            <p>${t("defaultReview")}</p>
+            <strong>${t("buyerName")}</strong>
+        </div>
+    `;
+}
+
+function escapeHTML(value){
+    return String(value).replace(/[&<>"']/g,c=>({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[c]));
 }
 
 document.getElementById("reviewForm").addEventListener("submit",function(e){
- e.preventDefault();
- reviews.push({
-  name:document.getElementById("reviewName").value,
-  rating:Number(document.getElementById("reviewRating").value),
-  text:document.getElementById("reviewText").value
- });
- save();renderReviews();this.reset();
-});
-// SCROLL REVEAL ANIMATION
+    e.preventDefault();
 
-const revealElements = document.querySelectorAll(
-    "section, .brand-section, .info-line, .heading"
-);
-
-revealElements.forEach(element => {
-    element.classList.add("reveal");
-});
-
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-        }
+    reviews.push({
+        name:document.getElementById("reviewName").value,
+        rating:Number(document.getElementById("reviewRating").value),
+        text:document.getElementById("reviewText").value
     });
-}, {
-    threshold: 0.12
+
+    save();
+    renderReviews();
+    this.reset();
 });
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
-// START
-
-renderProducts();
-renderCart();
-renderWishlist();
-renderReviews();
-
+setLanguage(lang);
 </script>
+
+<!-- TURAN ASTANA INFORMATION CARDS -->
+<section class="turan-info">
+    <h2>Discover TURAN ASTANA</h2>
+    <p class="info-subtitle">Білім, даму және жаңа мүмкіндіктер</p>
+
+    <div class="info-cards">
+        <div class="info-card">
+            <div class="info-icon">🎓</div>
+            <h3>TURAN-ASTANA</h3>
+            <p>University in Astana</p>
+            <a href="https://tau-edu.kz/" target="_blank">Official Website ↗️</a>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">◎</div>
+            <h3>Instagram</h3>
+            <p>Follow university updates</p>
+            <a href="https://www.instagram.com/turanastana/" target="_blank">Visit Instagram ↗️</a>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">📍</div>
+            <h3>Our Location</h3>
+            <p>Астана, Ықылас Дүкенұлы көшесі, 29</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Turan-Astana+University+Astana" target="_blank">View on Map ↗️</a>
+        </div>
+    </div>
+</section>
+
+<style>
+.turan-info {
+    padding: 65px 20px;
+    text-align: center;
+    background: #fce8dc;
+    color: #59171b;
+}
+
+.turan-info h2 {
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.info-subtitle {
+    color: #80534b;
+    margin-bottom: 35px;
+}
+
+.info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: #fffaf5;
+    border: 1px solid #d9b5a5;
+    border-radius: 18px;
+    padding: 30px 22px;
+    width: 240px;
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px #59171b25;
+}
+
+.info-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    letter-spacing: 1px;
+}
+
+.info-card p {
+    color: #80645c;
+    font-size: 14px;
+    min-height: 35px;
+}
+
+.info-card a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 11px 18px;
+    background: #59171b;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.info-card a:hover {
+    background: #8a3439;
+}
+</style>
+
+<footer>
+    <h2>TURAN UNIVERSITY.</h2>
+    <p data-i="footer1">СОЗДАНО ДЛЯ СВОИХ.</p>
+    <p data-i="footer2">ОФИЦИАЛЬНАЯ УНИВЕРСИТЕТСКАЯ ОДЕЖДА</p>
+    <div class="footer-line"></div>
+    <p>©️ 2026 TURAN ATELIER. <span data-i="rights">ВСЕ ПРАВА ЗАЩИЩЕНЫ.</span></p>
+</footer>
+
 </body>
 </html>
